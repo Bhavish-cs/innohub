@@ -1,0 +1,24 @@
+{
+  "name": "innohub-website",
+  "version": "1.0.0",
+  "description": "A modern, responsive marketing agency website with dark mode, animated counters, and interactive features",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build process required'",
+    "start": "echo 'Open index.html in your browser'",
+    "dev": "echo 'Open index.html in your browser for development'"
+  },
+  "keywords": [
+    "website",
+    "marketing",
+    "responsive",
+    "dark-mode",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "DemoHub",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
