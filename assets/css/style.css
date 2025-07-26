@@ -90,6 +90,19 @@
 
 }
 
+/* Dark theme variables */
+[data-theme="dark"] {
+  --eerie-black: hsl(0, 0%, 95%);
+  --gray-web: hsl(0, 0%, 80%);
+  --white-1: hsl(240, 6%, 10%);
+  --white-2: hsl(240, 6%, 12%);
+  --cultured: hsl(240, 6%, 15%);
+  --cultured-2: hsl(240, 6%, 18%);
+  --platinum: hsl(240, 6%, 20%);
+  --light-gray: hsl(240, 6%, 25%);
+  --black: hsl(0, 0%, 100%);
+}
+
 
 
 
@@ -321,6 +334,35 @@ body {
   line-height: 1;
 }
 
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--eerie-black);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: var(--transition-1);
+  position: relative;
+  margin-right: 15px;
+}
+
+.theme-toggle:hover {
+  background-color: var(--cultured);
+}
+
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  display: block;
+}
+
 .nav-toggle-btn {
   font-size: 40px;
 }
@@ -419,6 +461,129 @@ body {
 .hero .btn {
   margin-inline: auto;
   margin-block-start: 20px;
+}
+
+/*-----------------------------------*\
+  #STATS
+\*-----------------------------------*/
+
+.stats {
+  background-color: var(--white-2);
+  padding-block: 80px;
+}
+
+.stats-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.stats-card {
+  background-color: var(--white-1);
+  padding: 40px 20px;
+  border-radius: var(--radius-8);
+  box-shadow: var(--shadow-1);
+  transition: var(--transition-2);
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-2);
+}
+
+.stats-number {
+  font-family: var(--ff-league-spartan);
+  font-size: 3.5rem;
+  font-weight: var(--fw-700);
+  color: var(--red-crayola);
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.stats-label {
+  color: var(--gray-web);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/*-----------------------------------*\
+  #SCROLL POPUP
+\*-----------------------------------*/
+
+.scroll-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.scroll-popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  background-color: var(--white-1);
+  padding: 40px;
+  border-radius: var(--radius-8);
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.scroll-popup.active .popup-content {
+  transform: scale(1);
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--gray-web);
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: var(--transition-1);
+}
+
+.popup-close:hover {
+  background-color: var(--cultured);
+  color: var(--red-crayola);
+}
+
+.popup-body h3 {
+  color: var(--eerie-black);
+  font-family: var(--ff-league-spartan);
+  font-size: var(--fs-3);
+  margin-bottom: 15px;
+}
+
+.popup-body p {
+  color: var(--gray-web);
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.popup-btn {
+  display: inline-block;
 }
 
 
@@ -1091,6 +1256,12 @@ textarea.input-field {
    * HEADER
    */
 
+  .theme-toggle {
+    order: 2;
+    margin-right: 0;
+    margin-left: 15px;
+  }
+
   .nav-toggle-btn {
     display: none;
   }
@@ -1403,6 +1574,23 @@ textarea.input-field {
 
   .contact-card .card-icon {
     padding: 15px;
+  }
+
+  /**
+   * STATS
+   */
+
+  .stats-number {
+    font-size: 4rem;
+  }
+
+  /**
+   * POPUP
+   */
+
+  .popup-content {
+    padding: 50px;
+    max-width: 500px;
   }
 
 }
