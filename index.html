@@ -7,6 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>InnoHub - We're available for marketing</title>
 
+  <!-- Dark mode detection script -->
+  <script>
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+
   <!-- 
     - favicon
   -->
@@ -37,6 +44,12 @@
     <div class="container">
 
       <a href="#" class="logo">DemoHub</a>
+
+      <!-- Dark mode toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <ion-icon name="moon-outline" class="moon-icon"></ion-icon>
+        <ion-icon name="sunny-outline" class="sun-icon"></ion-icon>
+      </button>
 
       <nav class="navbar container" data-navbar>
         <ul class="navbar-list">
@@ -113,6 +126,38 @@
             <img src="./assets/images/hero-banner.png" width="720" height="673" alt="hero banner" class="w-100">
           </figure>
 
+        </div>
+      </section>
+
+      <!-- Stats Counter Section -->
+      <section class="section stats" aria-label="stats">
+        <div class="container">
+          <ul class="stats-list">
+            <li class="stats-item">
+              <div class="stats-card">
+                <h3 class="stats-number" data-target="150">0</h3>
+                <p class="stats-label">Happy Clients</p>
+              </div>
+            </li>
+            <li class="stats-item">
+              <div class="stats-card">
+                <h3 class="stats-number" data-target="200">0</h3>
+                <p class="stats-label">Projects Completed</p>
+              </div>
+            </li>
+            <li class="stats-item">
+              <div class="stats-card">
+                <h3 class="stats-number" data-target="50">0</h3>
+                <p class="stats-label">Awards Won</p>
+              </div>
+            </li>
+            <li class="stats-item">
+              <div class="stats-card">
+                <h3 class="stats-number" data-target="5">0</h3>
+                <p class="stats-label">Years Experience</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -794,6 +839,20 @@
     </article>
   </main>
 
+  <!-- Scroll Popup -->
+  <div class="scroll-popup" id="scrollPopup">
+    <div class="popup-content">
+      <button class="popup-close" id="popupClose" aria-label="Close popup">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <div class="popup-body">
+        <h3>Welcome to DemoHub!</h3>
+        <p>Get 20% off on your first project. Limited time offer!</p>
+        <a href="#contact" class="btn btn-primary popup-btn">Get Started</a>
+      </div>
+    </div>
+  </div>
+
 
 
 
@@ -831,7 +890,7 @@
   <!-- 
     - custom js link
   -->
-  <script src="./assets/js/script.js" defer></script>
+  <script src="./assets/js/script.js"></script>
 
   <!-- 
     - ionicon link
